@@ -42,9 +42,9 @@ const Navigation = () => {
             className="flex items-center cursor-pointer group"
           >
             <img 
-              src="/Tint_Lab_Logo.webp" 
+              src="/Logo.png" 
               alt="TintLab Logo" 
-              className="w-8 h-8 mr-3 group-hover:opacity-80 transition-opacity duration-300" 
+              className="w-[10rem]  mr-3 group-hover:opacity-80 transition-opacity duration-300" 
             />
             <h1 className="text-2xl font-helvetica font-light text-white group-hover:text-gray-300 transition-colors duration-300">
               tint<span className="text-gray-300 font-normal">lab</span>

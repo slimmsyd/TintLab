@@ -203,7 +203,7 @@ const Footer = () => {
               <img 
                 src="/Tint_Lab_Logo.webp" 
                 alt="TintLab Logo" 
-                className="w-7 h-7 mr-3" 
+                className="w-[10rem] mr-3" 
               />
               <h3 className="text-2xl font-medium text-gray-900">
                 Tint<span className="font-light">Lab</span>
