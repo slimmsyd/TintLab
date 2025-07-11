@@ -34,6 +34,7 @@ const LatestWorkSection = () => {
       title: "Chevrolet Corvette C8 - Ceramic IR Series",
       category: "Sports Car",
       image: "/Gallery/Car_1.jpg",
+      type: "image",
       description: "Premium ceramic tinting with superior heat rejection for America's supercar"
     },
     {
@@ -41,6 +42,7 @@ const LatestWorkSection = () => {
       title: "BMW 5 Series - SunTek CXP",
       category: "Luxury Sedan",
       image: "/Gallery/Car_2.jpg",
+      type: "image",
       description: "Crystal-clear protection with 99% UV blocking for ultimate driving comfort"
     },
     {
@@ -48,6 +50,7 @@ const LatestWorkSection = () => {
       title: "BMW M4 - Performance Tint Package",
       category: "Performance Coupe",
       image: "/Gallery/Car_3.jpg",
+      type: "image",
       description: "Track-ready ceramic tinting designed for high-performance driving"
     },
     {
@@ -55,6 +58,7 @@ const LatestWorkSection = () => {
       title: "Rivian R1T - Electric Vehicle Specialist",
       category: "Electric Truck",
       image: "/Gallery/Car_4.jpg",
+      type: "image",
       description: "Advanced nano-ceramic technology optimized for electric vehicle efficiency"
     },
     {
@@ -62,6 +66,7 @@ const LatestWorkSection = () => {
       title: "Porsche Panamera - Precision Install",
       category: "Luxury Sports Sedan",
       image: "/Gallery/Car_6.jpg",
+      type: "image",
       description: "Meticulous hand-cut installation showcasing our expert craftsmanship"
     },
     {
@@ -69,6 +74,7 @@ const LatestWorkSection = () => {
       title: "Mercedes EQS - Premium Electric",
       category: "Electric Luxury",
       image: "/Gallery/Car_7.jpg",
+      type: "image",
       description: "State-of-the-art ceramic tinting for Mercedes' flagship electric sedan"
     },
     {
@@ -76,6 +82,7 @@ const LatestWorkSection = () => {
       title: "BMW M6 - Carbon Series Tint",
       category: "Grand Tourer",
       image: "/Gallery/Car_8.jpg",
+      type: "image",
       description: "Professional-grade carbon tinting with lifetime warranty coverage"
     }
   ];
@@ -153,12 +160,14 @@ const LatestWorkSection = () => {
                       loading="lazy"
                     />
                     
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                        <Play className="w-6 h-6 text-white" />
+                    {/* Hover Overlay - Only show play button for videos */}
+                    {item.type === "video" && (
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                          <Play className="w-6 h-6 text-white" />
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                   
                   {/* Content */}
