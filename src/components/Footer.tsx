@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Clock, Shield, Send, Loader2 } from 'lucide-react';
+import GoogleMap from './ui/google-map';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -100,6 +101,96 @@ const Footer = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="h-px bg-gray-200 mb-12 md:mb-16" />
+
+        {/* Location Map Section */}
+        <div className="mb-16 md:mb-20">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
+              Visit Our Shop
+            </h3>
+            <p className="text-gray-600 font-light">
+              Professional installation facility in Fredericksburg, VA
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+            {/* Map */}
+            <div className="lg:col-span-2">
+              <GoogleMap 
+                address="10928 Patriot Hwy, Fredericksburg, VA 22408"
+                height="400px"
+                className="border border-gray-200"
+              />
+            </div>
+            
+            {/* Location Details */}
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 lg:p-8 shadow-sm">
+              <h4 className="text-gray-900 font-medium mb-6 text-lg">Location Details</h4>
+              
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mt-0.5">
+                    <MapPin className="w-4 h-4 text-gray-600" />
+                  </div>
+                  <div>
+                    <p className="text-gray-900 font-medium text-sm mb-1">Address</p>
+                    <a 
+                      href="https://maps.google.com/?q=10928+Patriot+Hwy,+Fredericksburg,+VA+22408" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-gray-900 text-sm leading-relaxed transition-colors duration-200"
+                    >
+                      10928 Patriot Hwy<br />
+                      Fredericksburg, VA 22408
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mt-0.5">
+                    <Clock className="w-4 h-4 text-gray-600" />
+                  </div>
+                  <div>
+                    <p className="text-gray-900 font-medium text-sm mb-1">Business Hours</p>
+                    <div className="text-gray-600 text-sm leading-relaxed">
+                      <div>Mon-Fri: 9:00am-5:30pm</div>
+                      <div>Saturday: By Appointment</div>
+                      <div>Sunday: Closed</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mt-0.5">
+                    <Phone className="w-4 h-4 text-gray-600" />
+                  </div>
+                  <div>
+                    <p className="text-gray-900 font-medium text-sm mb-1">Contact</p>
+                    <a href="tel:5408910696" className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200">
+                      (540) 891-0696
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-6 pt-6 border-t border-gray-100">
+                <a 
+                  href="https://maps.google.com/?q=10928+Patriot+Hwy,+Fredericksburg,+VA+22408" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-gray-900 hover:text-gray-700 font-medium text-sm transition-colors duration-200"
+                >
+                  Get Directions
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="h-px bg-gray-200 mb-12 md:mb-16" />
