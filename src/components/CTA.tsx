@@ -108,9 +108,11 @@ const CTA = () => {
                   <div className="aspect-[9/16] bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 relative">
                     <video
                       className="w-full h-full object-cover"
-                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
                       preload="metadata"
-                      poster=""
                     >
                       <source src={video.src} type="video/mp4" />
                       Your browser does not support the video tag.
