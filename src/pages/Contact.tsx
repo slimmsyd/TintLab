@@ -13,7 +13,9 @@ import {
   Shield,
   Award,
   Star,
-  Loader2
+  Loader2,
+  Upload,
+  X
 } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -30,12 +32,15 @@ const Contact = () => {
     currentTinting: '',
     serviceType: '',
     tintShadePreference: '',
-    notes: ''
+    notes: '',
+    vehiclePhoto: null as File | null
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -45,33 +50,131 @@ const Contact = () => {
     }));
   };
 
+  const handleFileUpload = (file: File) => {
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      setError('Please upload an image file (JPG, PNG, etc.)');
+      return;
+    }
+
+    // Validate file size (5MB limit)
+    if (file.size > 5 * 1024 * 1024) {
+      setError('File size must be less than 5MB');
+      return;
+    }
+
+    setFormData(prev => ({
+      ...prev,
+      vehiclePhoto: file
+    }));
+
+    // Create preview
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setPhotoPreview(e.target?.result as string);
+    };
+    reader.readAsDataURL(file);
+    setError(null);
+  };
+
+  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      handleFileUpload(file);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      handleFileUpload(file);
+    }
+  };
+
+  const removePhoto = () => {
+    setFormData(prev => ({
+      ...prev,
+      vehiclePhoto: null
+    }));
+    setPhotoPreview(null);
+  };
+
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
     
     try {
-      // Submit form data to webhook with timestamp and status
-      const submissionData = {
-        ...formData,
+      // Prepare submission data
+      const baseSubmissionData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        vehicleYear: formData.vehicleYear,
+        vehicleYearCustom: formData.vehicleYearCustom,
+        vehicleMake: formData.vehicleMake,
+        vehicleModel: formData.vehicleModel,
+        currentTinting: formData.currentTinting,
+        serviceType: formData.serviceType,
+        tintShadePreference: formData.tintShadePreference,
+        notes: formData.notes,
         submissionDate: new Date().toISOString(),
         submittedAt: new Date().toLocaleString(),
         status: 'New'
       };
-      
+
       // Use production webhook URL if in production, otherwise use test URL
       const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
       const webhookUrl = isProduction 
         ? 'https://kilah.app.n8n.cloud/webhook/004f4556-bba6-43fc-a6e8-608dbca5fefc'
         : 'https://kilah.app.n8n.cloud/webhook-test/004f4556-bba6-43fc-a6e8-608dbca5fefc';
       
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submissionData),
-      });
+      let response;
+
+      // If photo is included, use FormData for binary file upload
+      if (formData.vehiclePhoto) {
+        const formDataToSend = new FormData();
+        
+        // Append all form fields
+        Object.entries(baseSubmissionData).forEach(([key, value]) => {
+          formDataToSend.append(key, value);
+        });
+        
+        // Append the binary file
+        formDataToSend.append('vehiclePhoto', formData.vehiclePhoto);
+        formDataToSend.append('vehiclePhotoName', formData.vehiclePhoto.name);
+        formDataToSend.append('vehiclePhotoSize', formData.vehiclePhoto.size.toString());
+        
+        response = await fetch(webhookUrl, {
+          method: 'POST',
+          // Don't set Content-Type header - let browser set it with boundary for multipart/form-data
+          body: formDataToSend,
+        });
+      } else {
+        // No photo - use JSON as before
+        response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(baseSubmissionData),
+        });
+      }
 
       if (response.ok) {
         console.log('Form submitted successfully:', formData);
@@ -91,8 +194,10 @@ const Contact = () => {
             currentTinting: '',
             serviceType: '',
             tintShadePreference: '',
-            notes: ''
+            notes: '',
+            vehiclePhoto: null
           });
+          setPhotoPreview(null);
         }, 3000);
       } else {
         console.error('Form submission failed:', response.status, response.statusText);
@@ -326,6 +431,96 @@ const Contact = () => {
                         className="h-12 border-2 border-gray-300 focus:border-black focus:ring-2 focus:ring-black bg-white text-black placeholder:text-gray-600 font-helvetica font-medium text-base"
                       />
                     </div>
+                  </div>
+
+                  {/* Vehicle Photo Upload - Optional */}
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-helvetica font-medium text-lg text-black">
+                        Vehicle Photo (Optional)
+                      </h3>
+                      <span className="text-sm text-gray-500 font-helvetica">
+                        Don't know your make/model? Upload a photo
+                      </span>
+                    </div>
+                    
+                    {!photoPreview ? (
+                      <div
+                        className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-all duration-300 cursor-pointer hover:bg-gray-50 ${
+                          isDragOver 
+                            ? 'border-black bg-gray-50 scale-[1.02]' 
+                            : 'border-gray-300'
+                        }`}
+                        onDragOver={handleDragOver}
+                        onDragLeave={handleDragLeave}
+                        onDrop={handleDrop}
+                        onClick={() => document.getElementById('vehicle-photo-input')?.click()}
+                      >
+                        <input
+                          id="vehicle-photo-input"
+                          type="file"
+                          accept="image/*"
+                          onChange={handleFileInputChange}
+                          className="hidden"
+                        />
+                        
+                        <div className="space-y-4">
+                          <div className="mx-auto w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                            <Upload className="w-6 h-6 text-gray-600" />
+                          </div>
+                          
+                          <div>
+                            <p className="font-helvetica font-medium text-base text-black mb-1">
+                              {isDragOver ? 'Drop your photo here' : 'Upload vehicle photo'}
+                            </p>
+                            <p className="text-sm text-gray-500 font-helvetica">
+                              Drag & drop or click to browse • JPG, PNG • Max 5MB
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="relative">
+                        <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
+                          <div className="flex items-start space-x-4">
+                            <div className="flex-shrink-0">
+                              <img
+                                src={photoPreview}
+                                alt="Vehicle preview"
+                                className="w-20 h-20 object-cover rounded-lg border-2 border-gray-200"
+                              />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-start justify-between">
+                                <div>
+                                  <p className="font-helvetica font-medium text-black truncate">
+                                    {formData.vehiclePhoto?.name}
+                                  </p>
+                                  <p className="text-sm text-gray-500 font-helvetica">
+                                    {formData.vehiclePhoto && (formData.vehiclePhoto.size / 1024 / 1024).toFixed(2)} MB
+                                  </p>
+                                </div>
+                                <Button
+                                  type="button"
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={removePhoto}
+                                  className="flex-shrink-0 text-gray-500 hover:text-red-600 hover:bg-red-50 h-8 w-8 p-0"
+                                >
+                                  <X className="w-4 h-4" />
+                                </Button>
+                              </div>
+                              <div className="flex items-center space-x-1 mt-2">
+                                <CheckCircle2 className="w-4 h-4 text-green-600" />
+                                <span className="text-sm text-green-600 font-helvetica font-medium">
+                                  Photo uploaded successfully
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Row 3: Service Type, Current Tinting, and Tint Shade Preference */}
