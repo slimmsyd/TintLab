@@ -11,6 +11,7 @@ import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import Chatbot from '../components/Chatbot';
+import WheelsSection from '../components/WheelsSection';
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <PremiumSection />
       <AdCopySection />
       <LatestWorkSection />
+      <WheelsSection />
 
       {/* <Benefits /> */}
       <Testimonials />

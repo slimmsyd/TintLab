@@ -28,7 +28,7 @@ const AdCopySection = () => {
             </h2>
             
             <p className="text-white/80 font-helvetica font-light text-base lg:text-lg leading-relaxed max-w-lg">
-              We have a history of taking tinting to new dimensions. Experience proven technology with lifetime manufacturer's warranty that includes fading protection.
+              We have a history of taking tinting to new dimensions. Experience proven technology with lifetime manufacturer's warranty that includes fading protection. We proudly offer the complete SunTek lineup, including their premium Evolve ceramic series.
             </p>
             
             <div className="pt-4">
@@ -165,8 +165,11 @@ const AdCopySection = () => {
                   • Reduces glare and increases safety
                 </p>
               </div>
-              <button className="text-white/60 hover:text-white font-helvetica font-light text-sm tracking-wide transition-colors duration-300 underline underline-offset-4">
-                Read More
+              <button 
+                onClick={scrollToCTA}
+                className="text-red-400 hover:text-red-300 font-helvetica font-light text-sm tracking-wide transition-colors duration-300 underline underline-offset-4"
+              >
+                Get Evolve Installed
               </button>
             </div>
           </div>
