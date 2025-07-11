@@ -109,7 +109,7 @@ const LatestWorkSection = () => {
   };
 
   return (
-    <section className="bg-white py-16 md:py-20 lg:py-24">
+    <section id="latest-work" className="bg-white py-16 md:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}

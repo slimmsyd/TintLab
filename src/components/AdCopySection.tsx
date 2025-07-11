@@ -8,7 +8,7 @@ const AdCopySection = () => {
   };
 
   return (
-    <section className="bg-automotive-black py-32 md:py-40 lg:py-48">
+    <section id="tint-section" className="bg-automotive-black py-32 md:py-40 lg:py-48">
       <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
         
         {/* Section Indicator */}

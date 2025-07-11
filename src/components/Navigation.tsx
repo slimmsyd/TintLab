@@ -26,9 +26,9 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { name: 'tint', action: () => scrollToSection('benefits') },
-    { name: 'wheels', action: () => console.log('Navigate to wheels') }, // Placeholder for now
-    { name: 'gallery', action: () => console.log('Navigate to gallery') }, // Placeholder for now
+    { name: 'tint', action: () => scrollToSection('tint-section') },
+    // { name: 'wheels', action: () => console.log('Navigate to wheels') }, // Placeholder for now
+    { name: 'gallery', action: () => scrollToSection('latest-work') },
     { name: 'contact', action: navigateToContact },
   ];
 
