@@ -141,8 +141,8 @@ const Contact = () => {
       // Use production webhook URL if in production, otherwise use test URL
       const isProduction = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
       const webhookUrl = isProduction 
-        ? 'https://kilah.app.n8n.cloud/webhook/004f4556-bba6-43fc-a6e8-608dbca5fefc'
-        : 'https://kilah.app.n8n.cloud/webhook-test/004f4556-bba6-43fc-a6e8-608dbca5fefc';
+        ? 'https://goldmine.app.n8n.cloud/webhook/004f4556-bba6-43fc-a6e8-608dbca5fefc'
+        : 'https://goldmine.app.n8n.cloud/webhook-test/004f4556-bba6-43fc-a6e8-608dbca5fefc';
       
       let response;
 
