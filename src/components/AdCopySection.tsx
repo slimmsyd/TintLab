@@ -32,28 +32,24 @@ const AdCopySection = () => {
             </p>
             
             <div className="pt-4">
-              <Button 
-                onClick={scrollToCTA}
-                className="bg-transparent border border-white/30 hover:bg-white/10 text-white px-8 py-3 font-helvetica font-light text-sm tracking-wide transition-all duration-300 uppercase"
+              <a 
+                href="https://suntekfilms.com/na/en/automotive-window-tint/ceramic/evolve/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-transparent border border-white/30 hover:bg-white/10 text-white px-8 py-3 font-helvetica font-light text-sm tracking-wide transition-all duration-300 uppercase"
               >
                 Read More
-              </Button>
+              </a>
             </div>
           </div>
 
           {/* Right Column - Featured Image */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-automotive-charcoal to-automotive-black rounded-lg overflow-hidden">
-              {/* Placeholder for main vehicle image */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm border border-white/20">
-                    <div className="w-10 h-10 bg-white/20 rounded-full"></div>
-                  </div>
-                  <p className="text-white/50 text-sm font-helvetica font-light">SunTek Protection Showcase</p>
-                </div>
-              </div>
-            </div>
+            <img 
+              src="/src/components/assets/Evolve_Graphic.png"
+              alt="SunTek Evolve - Our Best Heat-Blocking Tint. Blocks up to 94% IR Heat with HeatResist ceramic technology"
+              className="w-[88%] h-auto object-contain rounded-lg"
+            />
           </div>
         </div>
 
