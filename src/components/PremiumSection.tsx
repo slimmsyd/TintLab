@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Shield, Sun, ShieldCheck } from 'lucide-react';
 
 const PremiumSection = () => {
   const scrollToCTA = () => {
@@ -56,24 +56,55 @@ const PremiumSection = () => {
               </div>
             </div>
 
-            {/* Secondary Content Block with Better Hierarchy */}
+            {/* TintLab Benefits */}
             <div className="space-y-10 pt-12 border-t border-gray-100">
-              <div className="space-y-8">
+              <div className="space-y-12">
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-helvetica font-normal text-black leading-tight">
-                  Crafted for Comfort.<br />
-                  Built for Presence.
+                  What are the benefits<br />
+                  of using TintLab?
                 </h3>
                 
-                <div className="max-w-3xl mx-auto lg:mx-0">
-                  <p className="text-lg text-gray-600 font-helvetica font-light leading-relaxed">
-                    Step into a sanctuary of sustainable luxury — featuring precision-cut ceramic films, adaptive heat rejection, and a panoramic view that's perfectly balanced.
-                  </p>
-                </div>
-                
-                <div className="max-w-3xl mx-auto lg:mx-0">
-                  <p className="text-lg text-gray-600 font-helvetica font-light leading-relaxed">
-                    With seamless installation and lifetime warranty, every detail is centered around you.
-                  </p>
+                {/* Benefits Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                  
+                  {/* Benefit 1: Lifetime Warranty */}
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="text-xl font-helvetica font-medium text-black">
+                      100% Lifetime Manufacturer's Warranty
+                    </h4>
+                    <p className="text-gray-600 font-helvetica font-light leading-relaxed">
+                      Including nation-wide coverage for complete peace of mind wherever your journey takes you.
+                    </p>
+                  </div>
+
+                  {/* Benefit 2: Solar Performance */}
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+                      <Sun className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="text-xl font-helvetica font-medium text-black">
+                      Superior Solar Performance
+                    </h4>
+                    <p className="text-gray-600 font-helvetica font-light leading-relaxed">
+                      Advanced heat, UV and glare protection for enhanced comfort and interior preservation.
+                    </p>
+                  </div>
+
+                  {/* Benefit 3: Safety & Protection */}
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+                      <ShieldCheck className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="text-xl font-helvetica font-medium text-black">
+                      Increased Safety & Protection
+                    </h4>
+                    <p className="text-gray-600 font-helvetica font-light leading-relaxed">
+                      Enhanced security and shatter resistance for you and your passengers' protection.
+                    </p>
+                  </div>
                 </div>
               </div>
               
@@ -84,7 +115,7 @@ const PremiumSection = () => {
                   className="bg-black hover:bg-gray-900 text-white px-10 py-4 font-helvetica font-light text-base tracking-wide transition-all duration-300 hover:scale-105 flex items-center space-x-3 shadow-lg hover:shadow-xl mx-auto lg:mx-0"
                 >
                   <ArrowRight className="w-5 h-5" />
-                  <span>Explore Our Services</span>
+                  <span>Get Your Quote Today</span>
                 </Button>
               </div>
             </div>
