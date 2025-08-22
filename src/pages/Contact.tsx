@@ -133,6 +133,7 @@ const Contact = () => {
         serviceType: formData.serviceType,
         tintShadePreference: formData.tintShadePreference,
         notes: formData.notes,
+        vehiclePhoto: formData.vehiclePhoto ? 'included' : 'none',
         submissionDate: new Date().toISOString(),
         submittedAt: new Date().toLocaleString(),
         status: 'New'

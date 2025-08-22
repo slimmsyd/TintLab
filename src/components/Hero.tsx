@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const scrollToBenefits = () => {
-    document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('tint-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToCTA = () => {
