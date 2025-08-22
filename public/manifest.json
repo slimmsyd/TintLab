@@ -1,0 +1,28 @@
+{
+  "name": "Tintlabs - Luxury Automotive Window Tinting",
+  "short_name": "Tintlabs",
+  "description": "Premium automotive window tinting services. Engineered to protect, designed to impress.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/Tint-Lab-Icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/Tint-Lab-Icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["automotive", "business", "services"],
+  "lang": "en-US",
+  "scope": "/",
+  "id": "tintlabs-app"
+}
