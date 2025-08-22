@@ -22,7 +22,7 @@ const Hero = () => {
         muted
         loop
         playsInline
-        poster="/placeholder.svg"
+        poster="/Tint-Lab-BG.png"
       >
         <source src="/Car.mp4" type="video/mp4" />
         Your browser does not support the video tag.
