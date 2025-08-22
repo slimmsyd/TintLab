@@ -87,9 +87,14 @@ const AdCopySection = () => {
                   • Signal enabling technology
                 </p>
               </div>
-              <button className="text-white/60 hover:text-white font-helvetica font-light text-sm tracking-wide transition-colors duration-300 underline underline-offset-4">
+              <a 
+                href="https://suntekfilms.com/na/en/automotive-window-tint/carbon/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-white font-helvetica font-light text-sm tracking-wide transition-colors duration-300 underline underline-offset-4"
+              >
                 Read More
-              </button>
+              </a>
             </div>
           </div>
 
@@ -161,12 +166,14 @@ const AdCopySection = () => {
                   • Reduces glare and increases safety
                 </p>
               </div>
-              <button 
-                onClick={scrollToCTA}
-                className="text-red-400 hover:text-red-300 font-helvetica font-light text-sm tracking-wide transition-colors duration-300 underline underline-offset-4"
+              <a 
+                href="https://suntekfilms.com/na/en/automotive-window-tint/ceramic/evolve/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-400 hover:text-red-300 font-helvetica font-light text-sm tracking-wide transition-colors duration-300 underline underline-offset-4 inline-block"
               >
                 Get Evolve Installed
-              </button>
+              </a>
             </div>
           </div>
         </div>
