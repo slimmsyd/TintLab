@@ -51,7 +51,7 @@ const PremiumSection = () => {
               
               <div className="max-w-3xl mx-auto lg:mx-0">
                 <p className="text-xl md:text-2xl text-gray-500 font-helvetica font-light leading-relaxed">
-                  With award-winning precision and record-breaking UV protection, TintLabs drivers reimagined the journey.
+                  With award-winning precision and record-breaking UV protection,<strong>TintLabs </strong> drivers reimagined the journey.
                 </p>
               </div>
             </div>
@@ -81,7 +81,7 @@ const PremiumSection = () => {
               <div className="pt-8">
                 <Button 
                   onClick={scrollToCTA}
-                  className="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full font-helvetica font-light text-base tracking-wide transition-all duration-300 hover:scale-105 flex items-center space-x-3 shadow-lg hover:shadow-xl mx-auto lg:mx-0"
+                  className="bg-black hover:bg-gray-900 text-white px-10 py-4 font-helvetica font-light text-base tracking-wide transition-all duration-300 hover:scale-105 flex items-center space-x-3 shadow-lg hover:shadow-xl mx-auto lg:mx-0"
                 >
                   <ArrowRight className="w-5 h-5" />
                   <span>Explore Our Services</span>

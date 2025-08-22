@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Shield, Star, ArrowDown } from 'lucide-react';
+import { Shield, Star, ArrowDown, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -64,7 +64,7 @@ const Hero = () => {
           {/* Enhanced Description with better mobile spacing */}
           <div className="max-w-2xl md:max-w-3xl space-y-3 sm:space-y-4 md:space-y-4">
             <p className="text-base sm:text-lg md:text-lg lg:text-xl text-gray-300 font-light leading-relaxed">
-              Enhance your car's privacy, UV protection, and look—with precision-cut carbon window tinting.
+              Enhance your car's privacy, UV protection, and look with precision-cut carbon window tinting.
             </p>
             <p className="text-sm sm:text-base md:text-base lg:text-lg text-white/80 font-light italic leading-relaxed">
               "Protecting you from the world outside"
@@ -84,11 +84,7 @@ const Hero = () => {
               <span className="text-white font-light text-xs sm:text-sm md:text-sm tracking-wide">5-STAR RATED</span>
             </div>
             <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-3">
-              <img 
-                src="/Tint_Lab_Logo.webp" 
-                alt="TintLab Logo" 
-                className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5" 
-              />
+            <Award className="w-5 h-5" />
               <span className="text-white font-light text-xs sm:text-sm md:text-sm tracking-wide">PREMIUM INSTALLATION</span>
             </div>
           </div>
