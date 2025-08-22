@@ -46,7 +46,7 @@ const AdCopySection = () => {
           {/* Right Column - Featured Image */}
           <div className="relative">
             <img 
-              src="/src/components/assets/Evolve_Graphic.png"
+              src="/public/Evolve_Graphic.png"
               alt="SunTek Evolve - Our Best Heat-Blocking Tint. Blocks up to 94% IR Heat with HeatResist ceramic technology"
               className="w-[88%] h-auto object-contain rounded-lg"
             />
