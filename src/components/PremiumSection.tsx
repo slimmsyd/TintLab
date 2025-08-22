@@ -3,8 +3,8 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Sun, ShieldCheck } from 'lucide-react';
 
 const PremiumSection = () => {
-  const scrollToCTA = () => {
-    document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
+  const navigateToContact = () => {
+    window.location.href = '/contact';
   };
 
   return (
@@ -111,7 +111,7 @@ const PremiumSection = () => {
               {/* CTA Button with Better Spacing */}
               <div className="pt-8">
                 <Button 
-                  onClick={scrollToCTA}
+                  onClick={navigateToContact}
                   className="bg-black hover:bg-gray-900 text-white px-10 py-4 font-helvetica font-light text-base tracking-wide transition-all duration-300 hover:scale-105 flex items-center space-x-3 shadow-lg hover:shadow-xl mx-auto lg:mx-0"
                 >
                   <ArrowRight className="w-5 h-5" />
