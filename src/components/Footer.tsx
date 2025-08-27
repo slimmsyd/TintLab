@@ -380,6 +380,23 @@ const Footer = () => {
             </a>
           </div>
         </div>
+
+        {/* Developer Credit */}
+        <div className="mt-6 pt-6 border-t border-gray-200">
+          <div className="text-center">
+            <p className="text-gray-400 text-xs font-light">
+              Website built by{' '}
+              <a 
+                href="https://www.0ncode.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
+              >
+                OnCode | Software Solutions
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   );
