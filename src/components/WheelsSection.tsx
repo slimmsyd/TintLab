@@ -7,6 +7,9 @@ const WheelsSection = () => {
   const scrollToCTA = () => {
     document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
   };
+  const navigateToContact = () => {
+    window.location.href = '/contact';
+  };
 
   const wheelShowcase = [
     {
@@ -213,7 +216,7 @@ const WheelsSection = () => {
             </p>
             <div className="space-y-4">
               <Button 
-                onClick={scrollToCTA}
+                onClick={navigateToContact}
                 className="bg-red-500 hover:bg-red-600 text-white px-12 py-4 font-helvetica font-light text-base tracking-wide transition-all duration-300 uppercase rounded-lg hover:scale-105 hover:shadow-xl"
               >
                 Explore Collection
