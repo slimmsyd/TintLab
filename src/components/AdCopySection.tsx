@@ -129,9 +129,14 @@ const AdCopySection = () => {
                   • Signal enabling technology
                 </p>
               </div>
-              <button className="text-white/60 hover:text-white font-helvetica font-light text-sm tracking-wide transition-colors duration-300 underline underline-offset-4">
+              <a 
+                href="https://suntekfilms.com/na/en/automotive-window-tint/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-white font-helvetica font-light text-sm tracking-wide transition-colors duration-300 underline underline-offset-4"
+              >
                 Read More
-              </button>
+              </a>
             </div>
           </div>
 
