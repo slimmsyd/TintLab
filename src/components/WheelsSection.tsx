@@ -15,70 +15,70 @@ const WheelsSection = () => {
     {
       id: 1,
       image: "/Wheels/Wheel_1.JPG",
-      name: "FORGIATO ELITE",
-      category: "Luxury Forged",
-      description: "Premium custom forged wheels with distinctive spoke design",
-      // price: "From $2,500",
-      features: ["Forged Construction", "Custom Finishes", "Premium Quality"]
+      // name: "FORGIATO ELITE",
+      // category: "Luxury Forged",
+      // description: "Premium custom forged wheels with distinctive spoke design",
+      // price: "Contact for Pricing",
+      // features: ["Forged Construction", "Custom Finishes", "Premium Quality"]
     },
     {
       id: 2,
       image: "/Wheels/Wheel_2.JPG",
-      name: "VOSSEN PRECISION",
-      category: "Performance Flow Formed",
-      description: "Precision engineered wheel designs for ultimate performance",
-      // price: "From $1,800",
-      features: ["Flow Formed", "Lightweight", "Racing Inspired"]
+      // name: "VOSSEN PRECISION",
+      // category: "Performance Flow Formed",
+      // description: "Precision engineered wheel designs for ultimate performance",
+      // price: "Contact for Pricing",
+      // features: ["Flow Formed", "Lightweight", "Racing Inspired"]
     },
     {
       id: 3,
       image: "/Wheels/Wheel_3.JPG",
-      name: "ROHANA MOTORSPORT",
-      category: "Rotary Forged",
-      description: "Motorsport inspired styling with aggressive aesthetics",
-      // price: "From $2,200",
-      features: ["Rotary Forged", "Track Ready", "Bold Design"]
+      // name: "ROHANA MOTORSPORT",
+      // category: "Rotary Forged",
+      // description: "Motorsport inspired styling with aggressive aesthetics",
+      // price: "Contact for Pricing",
+      // features: ["Rotary Forged", "Track Ready", "Bold Design"]
     },
     {
       id: 4,
       image: "/Wheels/Wheel_4.JPG",
-      name: "FUEL EXTREME",
-      category: "Truck & SUV",
-      description: "Built for extreme performance and rugged terrain",
-      // price: "From $1,500",
-      features: ["Heavy Duty", "Off-Road", "Durable Finish"]
+      // name: "FUEL EXTREME",
+      // category: "Truck & SUV",
+      // description: "Built for extreme performance and rugged terrain",
+      // price: "Contact for Pricing",
+      // features: ["Heavy Duty", "Off-Road", "Durable Finish"]
     },
     {
       id: 5,
       image: "/Wheels/Wheel_5.JPG",
-      name: "AMERICAN HERITAGE",
-      category: "Classic Performance",
-      description: "Legendary racing heritage with timeless design",
-      // price: "From $1,600",
-      features: ["Classic Design", "Racing Heritage", "Proven Performance"]
+      // name: "AMERICAN HERITAGE",
+      // category: "Classic Performance",
+      // description: "Legendary racing heritage with timeless design",
+      // price: "Contact for Pricing",
+      // features: ["Classic Design", "Racing Heritage", "Proven Performance"]
     },
     {
       id: 6,
       image: "/Wheels/Wheel_6.JPG",
-      name: "METHOD ADVENTURE",
-      category: "Off-Road Racing",
-      description: "Purpose-built for adventure and extreme conditions",
-      price: "From $1,400",
-      features: ["Adventure Ready", "Extreme Durability", "Proven Design"]
+      // name: "METHOD ADVENTURE",
+      // category: "Off-Road Racing",
+      // description: "Purpose-built for adventure and extreme conditions",
+      // price: "Contact for Pricing",
+      // features: ["Adventure Ready", "Extreme Durability", "Proven Design"]
     },
     {
       id: 7,
       image: "/Wheels/Wheel_7.JPG",
-      name: "PREMIUM COLLECTION",
-      category: "Luxury Series",
+      // name: "PREMIUM COLLECTION",
+      // category: "Luxury Series",
       // description: "Exclusive premium collection with sophisticated styling",
-      // price: "From $3,000",
-      features: ["Exclusive Design", "Premium Materials", "Limited Edition"]
+      // price: "Contact for Pricing",
+      // features: ["Exclusive Design", "Premium Materials", "Limited Edition"]
     }
   ];
 
   return (
-    <section className="bg-automotive-black py-24 md:py-32 lg:py-40">
+    <section id="wheels-section" className="bg-automotive-black py-24 md:py-32 lg:py-40">
       <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
         
         {/* Section Header */}
@@ -147,7 +147,7 @@ const WheelsSection = () => {
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-automotive-charcoal/30 to-automotive-black border border-white/5 group-hover:border-red-400/30 transition-all duration-500">
                 <img 
                   src={wheel.image} 
-                  alt={wheel.name}
+                  // alt={wheel.name}
                   className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
@@ -161,18 +161,19 @@ const WheelsSection = () => {
                 }`}>
                   <div className="p-8 h-full flex flex-col justify-center text-center space-y-4">
                     <div>
-                      <h4 className="font-helvetica font-light text-white text-xl mb-2">{wheel.name}</h4>
+                        {/* <h4 className="font-helvetica font-light text-white text-xl mb-2">{wheel.name}</h4> */}
                       <p className="text-red-400 font-helvetica font-medium text-sm tracking-wide uppercase mb-4">
-                        {wheel.category}
+                        {/* {wheel.category} */}
                       </p>
                       <p className="text-white/80 font-helvetica font-light text-sm leading-relaxed mb-6">
-                        {wheel.description}
+                        {/* {wheel.description} */}
                       </p>
                     </div>
                     
                     <div className="space-y-4">
-                      <div className="flex flex-wrap justify-center gap-2">
-                        {wheel.features.map((feature, index) => (
+                      {/* <div className="flex flex-wrap justify-center gap-2">
+
+                   {wheel.features.map((feature, index) => (
                           <span 
                             key={index}
                             className="bg-red-400/20 text-red-400 px-3 py-1 rounded-full text-xs font-light border border-red-400/30"
@@ -180,23 +181,25 @@ const WheelsSection = () => {
                             {feature}
                           </span>
                         ))}
-                      </div>
-                      <p className="text-white font-helvetica font-medium text-lg">{wheel.price}</p>
+                      </div> */}
+                      {/* <p className="text-white font-helvetica font-medium text-lg">{wheel.price}</p> */}
                     </div>
                   </div>
                 </div>
+
+                
                 
                 {/* Minimal Info Bar (Always Visible) */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
                   <h4 className="font-helvetica font-light text-white text-lg lg:text-xl leading-tight">
-                    {wheel.name}
+                    {/* {wheel.name} */}
                   </h4>
                   <div className="flex justify-between items-center">
                     <p className="text-red-400 font-helvetica font-medium text-xs tracking-wide uppercase">
-                      {wheel.category}
+                      {/* {wheel.category} */}
                     </p>
                     <p className="text-white/90 font-helvetica font-medium text-sm">
-                      {wheel.price}
+                      {/* {wheel.price} */}
                     </p>
                   </div>
                 </div>

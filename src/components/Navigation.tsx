@@ -1,16 +1,37 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isHomePage = location.pathname === '/';
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const navigateToSectionOrHome = (sectionId: string) => {
+    if (isHomePage) {
+      // If we're on the home page, just scroll to the section
+      scrollToSection(sectionId);
+    } else {
+      // If we're on a different page, navigate to home with hash
+      navigate('/', { replace: true });
+      // Use a small delay to ensure the page loads before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
     setIsMobileMenuOpen(false);
   };
@@ -26,9 +47,9 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { name: 'tint', action: () => scrollToSection('tint-section') },
-    // { name: 'wheels', action: () => console.log('Navigate to wheels') }, // Placeholder for now
-    { name: 'gallery', action: () => scrollToSection('latest-work') },
+    { name: 'tint', action: () => navigateToSectionOrHome('tint-section') },
+    { name: 'wheels', action: () => navigateToSectionOrHome('wheels-section') },
+    { name: 'gallery', action: () => navigateToSectionOrHome('latest-work') },
     { name: 'contact', action: navigateToContact },
   ];
 
