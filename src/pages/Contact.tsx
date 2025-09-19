@@ -33,6 +33,8 @@ const Contact = () => {
     serviceType: '',
     tintShadePreference: '',
     notes: '',
+    whereDidYouFindUs: '',
+    whereDidYouFindUsOther: '',
     vehiclePhoto: null as File | null
   });
 
@@ -133,6 +135,7 @@ const Contact = () => {
         serviceType: formData.serviceType,
         tintShadePreference: formData.tintShadePreference,
         notes: formData.notes,
+        whereDidYouFindUs: formData.whereDidYouFindUs === 'Other' ? (formData.whereDidYouFindUsOther || 'Other') : formData.whereDidYouFindUs,
         vehiclePhoto: formData.vehiclePhoto ? 'included' : 'none',
         submissionDate: new Date().toISOString(),
         submittedAt: new Date().toLocaleString(),
@@ -196,6 +199,8 @@ const Contact = () => {
             serviceType: '',
             tintShadePreference: '',
             notes: '',
+            whereDidYouFindUs: '',
+            whereDidYouFindUsOther: '',
             vehiclePhoto: null
           });
           setPhotoPreview(null);
@@ -265,6 +270,17 @@ const Contact = () => {
   ];
 
   const vehicleYearOptions = [ ...Array.from({ length: 30 }, (_, i) => (2024 - i).toString())];
+
+  const whereDidYouFindUsOptions = [
+    'Google Search',
+    'Instagram',
+    'Facebook',
+    'TikTok',
+    'Friend/Referral',
+    'Returning Customer',
+    'Drove By/Signage',
+    'Other',
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
@@ -431,6 +447,33 @@ const Contact = () => {
                         required
                         className="h-12 border-2 border-gray-300 focus:border-black focus:ring-2 focus:ring-black bg-white text-black placeholder:text-gray-600 font-helvetica font-medium text-base"
                       />
+                    </div>
+                  </div>
+
+                  {/* Row 2.5: Where did you find us */}
+                  <div className="">
+                    <label className="block mb-2 font-helvetica font-medium text-black text-base">Where did you find us?</label>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <select
+                        name="whereDidYouFindUs"
+                        value={formData.whereDidYouFindUs}
+                        onChange={handleInputChange}
+                        className="w-full h-12 border-2 border-gray-300 rounded-md px-3 py-2 font-helvetica font-medium text-base focus:border-black focus:ring-2 focus:ring-black focus:outline-none bg-white text-black"
+                      >
+                        <option value="" className="text-gray-600">Select an option</option>
+                        {whereDidYouFindUsOptions.map((option, idx) => (
+                          <option key={idx} value={option} className="text-black">{option}</option>
+                        ))}
+                      </select>
+                      {formData.whereDidYouFindUs === 'Other' && (
+                        <Input
+                          name="whereDidYouFindUsOther"
+                          placeholder="Please specify..."
+                          value={formData.whereDidYouFindUsOther || ''}
+                          onChange={e => setFormData(prev => ({ ...prev, whereDidYouFindUsOther: e.target.value }))}
+                          className="h-12 border-2 border-gray-300 focus:border-black focus:ring-2 focus:ring-black bg-white text-black placeholder:text-gray-600 font-helvetica font-medium text-base"
+                        />
+                      )}
                     </div>
                   </div>
 
