@@ -78,7 +78,7 @@ const Navigation = () => {
               <button
                 key={index}
                 onClick={item.action}
-                className="text-white font-helvetica font-light text-base tracking-wide hover:text-gray-300 transition-all duration-300 relative group"
+                className="text-white font-helvetica font-light text-base tracking-wide hover:text-gray-300 transition-all duration-300 relative group cursor-pointer"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300"></span>
@@ -88,7 +88,7 @@ const Navigation = () => {
             {/* CTA Button */}
             <Button 
               onClick={navigateToContact}
-              className="bg-white text-black hover:bg-gray-100 py-3 px-8 text-sm font-helvetica font-medium tracking-widest uppercase transition-all duration-300 rounded-none border-0 ml-6"
+              className="bg-white text-black hover:bg-gray-100 py-3 px-8 text-sm font-helvetica font-medium tracking-widest uppercase transition-all duration-300 rounded-none border-0 ml-6 cursor-pointer"
             >
               free quote
             </Button>
@@ -96,7 +96,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -116,7 +116,7 @@ const Navigation = () => {
               <button
                 key={index}
                 onClick={item.action}
-                className="block w-full text-left px-8 py-4 text-white font-helvetica font-light text-base tracking-wide hover:text-gray-300 hover:bg-white/5 transition-all duration-300"
+                className="block w-full text-left px-8 py-4 text-white font-helvetica font-light text-base tracking-wide hover:text-gray-300 hover:bg-white/5 transition-all duration-300 cursor-pointer"
               >
                 {item.name}
               </button>
@@ -125,7 +125,7 @@ const Navigation = () => {
             <div className="px-8 pt-4">
               <Button 
                 onClick={navigateToContact}
-                className="bg-white text-black hover:bg-gray-100 py-3 px-8 text-sm w-full font-helvetica font-medium tracking-widest uppercase transition-all duration-300 rounded-none border-0"
+                className="bg-white text-black hover:bg-gray-100 py-3 px-8 text-sm w-full font-helvetica font-medium tracking-widest uppercase transition-all duration-300 rounded-none border-0 cursor-pointer"
               >
                 free quote
               </Button>
