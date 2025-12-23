@@ -28,7 +28,7 @@ const Index = () => {
       <FAQ />
       <CTA />
       <Footer />
-      <Chatbot />
+      {/* <Chatbot /> */}
     </div>
   );
 };
